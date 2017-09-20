@@ -1,14 +1,10 @@
-<!--The content below is only a placeholder and can be replaced.-->
+<!-- Add the child selector. Within that, the parent is catching "searched" here-. newSearch is a function created on the parent .ts file -->
 <app-search (searched)="newSearch($event)"></app-search>
 
 <div style="text-align:center">
   <h1>
     Welcome to {{title}}!
-
   </h1>
-
-
-
 
 <table>
   <thead>
@@ -16,12 +12,12 @@
     <th>Character Image</th>
   </thead>
   <tbody>
-    <!-- loop over each character and display each one -->
+    <!-- loop over each character and display each one (we got "characters" from the .ts file. Character is potato, but makes sense to make it singular since you just want ONE of the characters in the array ) -->
     <tr *ngFor="let character of characters"> 
-      <!-- display character name -->
+      <!-- for every character in characters repeat the td tag and display a character name -->
       <td>{{character.name}}</td>
-      <!-- display character image -->
-      <td><img [src]="character.thumbnail.path + '.' + character.thumbnail.extension"></td>
+      <!-- for every character in characters repeat the img tag and display character image. If you add square brackets to any attribute, it tells Angular that you don't need to use curly braces around "character.thumbnail.path" and can treat it as JS code-->
+      <td><img [src]="character.thumbnail.path + '/standard_fantastic' + '.' + character.thumbnail.extension"></td>
     </tr>
   </tbody>
 </table>

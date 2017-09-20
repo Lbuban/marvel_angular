@@ -7,31 +7,19 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
 
+  //Since we are communicating from child to parent, we need to use @Output to "throw" the term "searched" to the parent (also add Output and EventEmitter above in import statement)
   @Output() searched = new EventEmitter<string>();
   searchTerm: string = '';
 
   constructor() { }
 
+//the interface says you have to have this method. Don't have to use it, but must have it. Could put an alert in there just to show that it's working upon load of the page. Or you could add this.searchTerm = "Kelsey" and it will add that to the search input field upon load.
   ngOnInit() {
   }
 
-  // userSearch: string;
-  // checkSearch;
-  // searchURL: string = "http://gateway.marvel.com/v1/public/characters?ts=1&apikey=288923d5d92e6a7e8cdc916936eaffec&hash=e44598f0318d6d85d57832ea3f2d40fe&nameStartsWith="
-  // ;
-
-
+//use .emit to throw "searched" to our parent because our parent is what holds all the logic to talk to the API. The parent needs to know that an event happened and how to respond.
   performSearch() {
-    this.searched.emit(this.searchTerm);
+    this.searched.emit(this.searchTerm); //searched represents the event and this.searchTerm is what the user entered. This will be "caught" on the parent .html file within the child selector tags (<app-search>).
   }
-
-
-
-
-
-
-//   this.refreshAnswer.emit(); //
-//   this.userAnswer='' //empty answer after submit
- 
 
  }
