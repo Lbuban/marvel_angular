@@ -1,5 +1,7 @@
 <!-- insert Bootstrap navbar template code here -->
 
+<nav class ="navbar navbar-default">
+    <a class="navbar-brand" href="#">ANGULAR MARVEL</a>
 <form class="navbar-form navbar-left" role="search">
     <div class="form-group">
       <!-- [(ngModel)] is part of FormsModule (that's why you had to bring FormsModule into your import statement on app.module.ts file). [(ngModel)] is the standard sytanx for all 2-way data binding -->
@@ -8,3 +10,4 @@
     <!-- when I click the button, I want it to perform a search, create performSearch in ts file  -->
     <button type="submit" class="btn btn-default" (click)="performSearch(searchTerm)">Search</button>
   </form>
+</nav>
